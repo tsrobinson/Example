@@ -47,12 +47,14 @@ function line_evaluator(parsed)
                 dict[parsed[i+1]] = line_evaluator(parsed[i+2])
             elseif parsed[i] == "=="
                 return line_evaluator(parsed[i+1]) == line_evaluator(parsed[i+2])
+            elseif parsed[i] == ">"
+                return line_evaluator(parsed[i+1]) > line_evaluator(parsed[i+2])
+            elseif parsed[i] == "<"
+                return line_evaluator(parsed[i+1]) < line_evaluator(parsed[i+2])
             elseif parsed[i] == "if"
                 if line_evaluator(parsed[i+1])
                     return line_evaluator(parsed[i+2])
                 end
-
-
             end
         elseif typeof(parsed[i]) == Char
             return dict[string(parsed[i])]

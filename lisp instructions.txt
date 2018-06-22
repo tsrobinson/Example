@@ -1,1 +1,5 @@
-(if (== 3 3) (define a 77))
+(define a 36)
+(define b 47)
+(define c (* a b))
+(if (< b c) (define d (/ a b)))
+(+ (* d 100) c)
